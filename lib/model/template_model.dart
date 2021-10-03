@@ -5,7 +5,7 @@ import 'package:checkbase/helpers/database_helper.dart';
 
 class TemplateViewModel with ChangeNotifier {
   ChecklistTemplate template;
-  List<TemplateItem> _items = List.empty(growable: true);
+  List<TemplateItem> _items = <TemplateItem>[];
   DeletedItem<TemplateItem>? _deletedItem;
 
   TemplateViewModel({ required this.template });

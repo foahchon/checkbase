@@ -1,3 +1,4 @@
+import 'package:checkbase/screens/template_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:provider/provider.dart';
@@ -144,10 +145,24 @@ class _ChecklistScreenState extends State<ChecklistScreen> with RouteAware {
                   );
 
                   if (templateName != null && templateName != "") {
-                    DatabaseHelper.createTemplateFromChecklist(new ChecklistTemplate(name: templateName), viewModel.checklist);
+                    var newTemplate = new ChecklistTemplate(name: templateName);
+                    await DatabaseHelper.createTemplateFromChecklist(newTemplate, viewModel.checklist);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Created template '$templateName'."),
+                        action: SnackBarAction(
+                          label: "View",
+                          onPressed: () async {
+                            var newTemplateItems = await DatabaseHelper.getItemsForTemplate(newTemplate);
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => TemplateScreen(template: newTemplate, items: newTemplateItems))
+                            );
+                          },
+                        ),
+                      )
+                    );
                   }
-
-                  await viewModel.refreshItems();
                 },
               )
             ],

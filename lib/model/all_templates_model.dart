@@ -5,7 +5,7 @@ import 'package:checkbase/helpers/deleted_list.dart';
 import 'package:checkbase/model/template_model.dart';
 
 class TemplatesViewModel with ChangeNotifier {
-  List<ChecklistTemplate> _templates = List.empty(growable: true);
+  List<ChecklistTemplate> _templates = <ChecklistTemplate>[];
   DeletedList<ChecklistTemplate, TemplateItem>? undoItem;
   
   int getTemplateCount() => _templates.length;

@@ -5,7 +5,7 @@ import 'package:checkbase/helpers/database_helper.dart';
 import 'package:checkbase/model/checklist_model.dart';
 
 class EditChecklistItemsViewModel with ChangeNotifier {
-  List<ChecklistItem> _checklistItems = List<ChecklistItem>.empty(growable: true);
+  List<ChecklistItem> _checklistItems = <ChecklistItem>[];
   
   int getChecklistItemCount() => _checklistItems.length;
   ChecklistItem getItemAt(int index) => _checklistItems[index];

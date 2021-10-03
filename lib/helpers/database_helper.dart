@@ -215,6 +215,8 @@ class DatabaseHelper {
                            SELECT ? as templates_id, cci.checklist_items_id, cci.list_order
                            FROM checklists_checklist_items cci
                            WHERE cci.checklist_id = ?""", [templateId, checklist.id]);
+
+    template.id = templateId;
   }
 
   static Future<void> deleteTemplate(ChecklistTemplate template) async {

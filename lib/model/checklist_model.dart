@@ -7,7 +7,7 @@ import 'package:checkbase/helpers/deleted_item.dart';
 class ChecklistViewModel with ChangeNotifier {
 
   Checklist checklist;
-  List<ChecklistItem> _items = List<ChecklistItem>.empty(growable: true);
+  List<ChecklistItem> _items = <ChecklistItem>[];
   DeletedItem<ChecklistItem>? _deletedItem;
 
   ChecklistViewModel({ required this.checklist });

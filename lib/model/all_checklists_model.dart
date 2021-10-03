@@ -7,7 +7,7 @@ import 'package:checkbase/helpers/database_helper.dart';
 
 class AllChecklistsViewModel with ChangeNotifier {
   DeletedList<Checklist, ChecklistItem>? undoItem;
-  List<Checklist> _items = List<Checklist>.empty(growable: true);
+  List<Checklist> _items = <Checklist>[];
 
   Checklist getChecklistAt(int index) => _items[index];
   int getChecklistCount() => _items.length;
